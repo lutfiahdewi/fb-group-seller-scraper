@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (if you use them)
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+*.log
+npm-debug.log*
+
+.vscode/
+
+.DS_Store
+Thumbs.db
