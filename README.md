@@ -83,6 +83,7 @@ python app/scraper/login.py
 
 ### Run main app
 ```bash
+(Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (...\fb-group-seller-scraper\.venv\Scripts\Activate.ps1)
 python main.py
 ```
 +This command initiates the main scraping process. It will: +- Load your saved Facebook session from login_session.json. +- Navigate to each Facebook group specified in config/groups.json. +- Scroll through the group feed to collect post cards. +- Extract raw post data. +- Apply rule-based detection to identify selling posts. +- Extract phone numbers from identified selling posts. +- Save raw post data to storage/raw_posts_<timestamp>.jsonl and seller candidates to storage/seller_candidates_<timestamp>.csv. + +If your session expires during the run, the script will detect it and prompt you to manually log in again in the browser. After re-logging in, the session will be updated. + +## Settings Configuration + +The application's behavior can be customized using environment variables defined in the .env file. A .env.example file is provided for reference; copy it to .env and modify as needed. + +Key settings include: + +- HEADLESS: (True/False, default: False)

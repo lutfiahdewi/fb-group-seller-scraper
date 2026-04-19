@@ -9,8 +9,8 @@ def normalize_phone(phone: str) -> str:
     digits = re.sub(r"\D", "", phone)
     
    # If the number starts with the country code '62', replace the '62' with '0'
-    if digits.startswith("62"):
-        return "0" + digits[2:]
+    if digits.startswith("0"):
+        return "62" + digits[1:]
         
     return digits
 
