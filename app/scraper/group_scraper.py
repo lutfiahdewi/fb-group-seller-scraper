@@ -150,7 +150,7 @@ def scrape_group(page: Page, group: GroupConfig) -> list[RawPostRecord]:
                 continue
                 
                 
-            print("[DEBUG] SUCCESS: Post extracted!")
+            # print("[DEBUG] SUCCESS: Post extracted!")
 
             # Quick identification to avoid extracting the same post twice
             try:

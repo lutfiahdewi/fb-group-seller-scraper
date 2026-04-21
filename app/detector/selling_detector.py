@@ -2,15 +2,22 @@ from __future__ import annotations
 import re
 
 # Expanded with heavy local social commerce slang
-SELLING_KEYWORDS = [
+PRODUCT_KEYWORDS = [
     # Standard
     "jual", "ready", "ready stok", "open order", "preorder", "po",
     "cod", "promo", "diskon", "harga", "order",
     # Local Slang & Abbreviations
     "japri", "dm", "inbox", "mahar", "nego", "minat", "lokasi", "lok", 
     "pc", "wa", "rekber", "murmer", "cuan", "sold", "tt", "bt", 
-    "tukar tambah", "barter", "dijual", "lepas", "angkut"
+    "tukar tambah", "barter", "dijual", "lepas", "angkut",
+    r"\bdijual\b", r"\bready\b", r"\bmurah\b", r"\bpromo\b", r"harga"
 ]
+SERVICE_KEYWORDS = [
+    r"\bojek\b", r"antar jemput", r"\bkurir\b", r"\bjasa\b", r"\bpijat\b", r"\burut\b"
+    # ... add the rest from the list above ...
+]
+# Combine them into one master list for the scraper to check
+ALL_SELLING_KEYWORDS = PRODUCT_KEYWORDS + SERVICE_KEYWORDS
 
 QUESTION_PATTERNS = [
     r"ada yang jual",
@@ -48,7 +55,7 @@ def is_likely_question(text: str) -> bool:
 def has_selling_keyword(text: str) -> bool:
     normalized = normalize_text(text)
     # Using regex word boundaries (\b) so "batal" doesn't trigger "bt" (barter)
-    for keyword in SELLING_KEYWORDS:
+    for keyword in ALL_SELLING_KEYWORDS:
         if re.search(rf"\b{keyword}\b", normalized):
             return True
     return False
