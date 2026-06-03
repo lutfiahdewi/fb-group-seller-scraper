@@ -36,42 +36,6 @@ Phone Extractor
    ↓
 Seller Records
 
-## Project structure
-
-```text
-seller_pipeline/
-├── README.md
-├── requirements.txt
-├── .env.example
-├── config/
-│   └── groups.json
-├── app/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── models.py
-│   ├── utils.py
-│   ├── pipeline.py
-│   ├── scraper/
-│   │   ├── __init__.py
-│   │   ├── browser.py
-│   │   ├── group_scraper.py
-│   │   └── selectors.py
-│   ├── detector/
-│   │   ├── __init__.py
-│   │   └── selling_detector.py
-│   ├── extractor/
-│   │   ├── __init__.py
-│   │   └── phone_extractor.py
-│   └── storage/
-│       ├── __init__.py
-│       ├── raw_writer.py
-│       └── csv_writer.py
-├── storage/
-│   ├── raw_posts.jsonl
-│   └── seller_candidates.csv
-└── main.py
-```
-
 ---
 
 ## How to run

@@ -20,4 +20,9 @@ npm-debug.log*
 Thumbs.db
 
 masteri-direktori.xlsx
-login_session.json
+storage/*
+!storage/.gitkeep
+
+config/Group list.xlsx
+
+notebooks/result
